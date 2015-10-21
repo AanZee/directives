@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aan Zee - Directives // Input Stepper</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+    <h3>Basic stepper</h3>
+    <p>You have chosen: {{myCounter1}}</p>
+    <input-stepper ng-model="myCounter1"></input-stepper>
+
+    <h3>Stepper <small>with label</small></h3>
+    <p>You have chosen: {{myCounter2}}</p>
+    <input-stepper ng-model="myCounter2" label="Choose a number"></input-stepper>
+
+    <h3>Stepper <small>with min and max</small></h3>
+    <p>You have chosen: {{myCounter3}}</p>
+    <input-stepper ng-model="myCounter3" min="1" max="10"></input-stepper>
+
+    <h3>Stepper <small>with step</small></h3>
+    <p>You have chosen: {{myCounter4}}</p>
+    <input-stepper ng-model="myCounter4" step="10"></input-stepper>
+
+    <h3>Stepper <small>disabled</small></h3>
+    <p>You have chosen: {{myCounter5}}</p>
+    <input-stepper ng-model="myCounter5" ng-disabled="true === true"></input-stepper>
+    <p>This works with ng-disabled, pass in a boolean and it will disable or enable. It also adds the class 'is-disabled'.</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script>
+        window.aanzeeDirective = {
+            viewPath: '../dist/views/aanzee/directives/'
+        };
+    </script>
+    <script src="../dist/js/directives.min.js"></script>
+    <script>
+        (function () {
+            angular.module('myApp', ['aanZeeDirectives']);
+            angular.module('myApp').controller('myController', ['$scope', function ($scope) {}]);
+        })();
+    </script>
+
+</body>
+</html>
