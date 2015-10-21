@@ -1,0 +1,18 @@
+{
+  "name": "AanZeeDirectives",
+  "description": "Front-end Angular Directives",
+  "version": "0.1.0",
+  "author": "Aan Zee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AanZee/directives"
+  },
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "gulp-concat": "~2.5.2",
+    "gulp-jshint": "~1.9.4",
+    "gulp-plumber": "~1.0.0",
+    "gulp-uglify": "~1.2.0",
+    "jshint-stylish": "~1.0.1"
+  }
+}
