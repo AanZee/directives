@@ -1,10 +1,10 @@
 (function (){
     angular.module('aanZeeDirectives')
-    .directive('inputStepper', function (PATH) {
+    .directive('inputStepper', ['options', function (options) {
         return {
             restrict: 'AE',
             require: ['ngModel', '?^ngDisabled'],
-            templateUrl: '/views/aanzee/directives/input-stepper/input-stepper.view.html',
+            templateUrl: options.viewPath + 'input-stepper/input-stepper.view.html',
             scope: {
                 ngModel: '=',
                 ngDisabled: '@?',
@@ -14,7 +14,7 @@
                 step: '@?',
                 disabled: '@?'
             },
-            controller: function($scope, $element) {
+            controller: ['$scope', '$element', function($scope, $element) {
                 $scope.decrease = function(){
                     if ($scope.minimum){
                         if (($scope.ngModel - parseInt($scope.step, 10)) >= $scope.minimum){
@@ -33,7 +33,7 @@
                         $scope.ngModel += parseInt($scope.step,10);
                     }
                 };
-            },
+            }],
             link: function(scope, elem, attr) {
                 scope.step = parseInt(attr.step, 10) || 1;
                 scope.minimum = undefined;
@@ -79,5 +79,5 @@
                 };
             }
         };
-    });
+    }]);
 })();
