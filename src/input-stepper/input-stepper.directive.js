@@ -1,5 +1,5 @@
 (function (){
-    angular.module('aanZeeDirectives')
+    angular.module('aanZeeDirectives.inputStepper', [])
     .directive('inputStepper', ['options', function (options) {
         return {
             restrict: 'AE',
