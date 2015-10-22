@@ -4,6 +4,7 @@
         return {
             restrict: 'AE',
             require: ['ngModel', '?^ngDisabled'],
+            replace: true,
             templateUrl: options.viewPath + 'input-stepper/input-stepper.view.html',
             scope: {
                 ngModel: '=',
@@ -12,7 +13,8 @@
                 minimum: '@?',
                 maximum: '@?',
                 step: '@?',
-                disabled: '@?'
+                disabled: '@?',
+                classes: '@?'
             },
             controller: ['$scope', '$element', function($scope, $element) {
                 $scope.decrease = function(){
@@ -38,6 +40,13 @@
                 scope.step = parseInt(attr.step, 10) || 1;
                 scope.minimum = undefined;
                 scope.maximum = undefined;
+                scope.classes = {
+                    increaseButton: '',
+                    decreaseButton: '',
+                    input: '',
+                    label: '',
+                    wrapper: ''
+                };
 
                 if (attr.max){
                     scope.maximum = parseInt(attr.max, 10);
@@ -47,6 +56,16 @@
                 }
                 if (!scope.ngModel){
                     scope.ngModel = scope.minimum || 0;
+                }
+
+                // Add classes to classes object
+                attr.classes = scope.$eval(attr.classes);
+                if (attr.classes) {
+                    for (var classKey in scope.classes){
+                        if (attr.classes[classKey]){
+                            scope.classes[classKey] = attr.classes[classKey];
+                        }
+                    }
                 }
 
                 var upKey = 38,
