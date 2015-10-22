@@ -2,9 +2,9 @@
 A whole bunch of Angular directives made by Aan Zee.
 The main purpose of this repository is to create standard directives which we use in numerous projects.
 
-*Version: 0.2.4*
+*Version: 0.2.5*
 
-### Usage
+## Usage
 1. Include the `dist/js/directives.min.js` in your HTML page after you have declared Angular and copy `dist/views` to a location you prefer.
 2. Alter some additional configuration as shown in the example html files.
 3. Now you are ready to use our directives in your project.
@@ -26,12 +26,30 @@ You could also choose to just use one directive, all directives are modules as w
 angular.module('myApp', ['aanZeeDirectives.inputStepper']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
 ```
 
-### Versioning
+## Directives
+#### Input Stepper
+Default module to select a number with an increase and decrease button. See the usage at `examples/input-stepper.html`
+
+**Dependencies**
+
+None
+
+#### Date Picker
+Default module to select a date with a lot of options, see them all at the `examples/date-picker.html`.
+
+**Dependencies**
+
+Package|Url
+-------|---
+Pikaday|https://github.com/dbushell/Pikaday
+moment.js|http://momentjs.com/
+
+## Versioning
 VX.0.0 Is a **major** release<br>
 V0.X.0 Is a **structure** release, in these releases the structure of a directive could be changed<br>
 V0.0.X Is a **minor** release, nothing changes in te structure only bug fixes and minor changes with no impact for other versions.
 
-### Author
+## Author
 Aan Zee Interactive
 - Raoul de Best
 - Sven Buijsrogge

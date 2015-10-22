@@ -1,7 +1,7 @@
 {
   "name": "AanZeeDirectives",
   "main": "dist/js/directives.min.js",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "homepage": "https://github.com/AanZee/directives",
   "authors": [
     "Back-end Developers <backend@aanzee.nl>"
@@ -21,5 +21,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "pikaday": "~1.3.3",
+    "moment": "~2.10.6"
+  }
 }
