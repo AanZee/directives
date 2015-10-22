@@ -1,6 +1,6 @@
 <div class="input-stepper {{classes.wrapper}}">
     <button class="input-stepper__decrease {{classes.decreaseButton}}" ng-class="{'is-disabled': (ngDisabled || ngModel == minimum )}" ng-click="decrease()" ng-disabled="(ngDisabled || ngModel == minimum )">-</button>
     <input class="input-stepper__input {{classes.input}}" ng-class="{'is-disabled': ngDisabled }" type="text" ng-model="ngModel" ng-change="validate(ngModel)" pattern="[0-9]*" ng-keyup="keyHandler($event)" ng-disabled="ngDisabled">
-    <button class="input-stepper__increase {{classes.increaseButton}}" ng-class="{'is-disabled': ngDisabled }" ng-click="increase()" ng-disabled="(ngDisabled || ngModel == maximum )">+</button>
+    <button class="input-stepper__increase {{classes.increaseButton}}" ng-class="{'is-disabled': (ngDisabled || ngModel == maximum ) }" ng-click="increase()" ng-disabled="(ngDisabled || ngModel == maximum )">+</button>
     <label class="input-stepper__label {{classes.label}}" ng-class="{'is-disabled': (ngDisabled || ngModel == maximum )}" ng-if="::label">{{label}}</label>
 </div>
