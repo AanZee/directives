@@ -5,10 +5,11 @@
 *.sql
 *.sqlite
 
-# NPM #
-#######
+# Node and Bower #
+##################
 npm-debug.log
 node_modules/
+bower_components/
 
 # workspace files are user-specific #
 #####################################

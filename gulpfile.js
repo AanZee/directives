@@ -26,11 +26,24 @@ var settings = {
     output: {
         dirs: {
             js: 'dist/js/',
+            jsVendor: 'dist/js/vendor/',
+            cssVendor: 'dist/css/vendor/',
             templates: 'dist/views/aanzee/directives/'
         },
         files: {
             js: 'directives.min.js'
         }
+    },
+    dependencies: {
+        js: [
+            'bower_components/pikaday/pikaday.js',
+            'bower_components/moment/moment.js',
+            'bower_components/moment/locale/nl.js',
+            'bower_components/moment/locale/de.js'
+        ],
+        css: [
+            'bower_components/pikaday/css/pikaday.css'
+        ]
     }
 };
 
@@ -55,6 +68,26 @@ gulp.task('moveTemplates', function(){
 });
 
 /**
+ * Move vendor javascript dependencies
+ * ------------------------------------------------------
+ * Moves the dependencies to the distribution folder
+ */
+gulp.task('moveJsDependencies', function(){
+    return gulp.src(settings.dependencies.js)
+        .pipe(gulp.dest(settings.output.dirs.jsVendor));
+});
+
+/**
+ * Move vendor css dependencies
+ * ------------------------------------------------------
+ * Moves the dependencies to the distribution folder
+ */
+gulp.task('moveCssDependencies', function(){
+    return gulp.src(settings.dependencies.css)
+        .pipe(gulp.dest(settings.output.dirs.cssVendor));
+});
+
+/**
  * Lint's the Javascript
  * ------------------------------------------------------
  */
@@ -69,7 +102,7 @@ gulp.task('jsLint', function(){
  * ------------------------------------------------------
  * Minifies the Javascript and output to the distribution folder
  */
-gulp.task('build', ['moveTemplates'], function(){
+gulp.task('build', ['moveTemplates', 'moveJsDependencies', 'moveCssDependencies'], function(){
     gulp.src(settings.sources.js)
         .pipe(plumber({
             errorHandler: onError

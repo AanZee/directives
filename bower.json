@@ -21,5 +21,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "pikaday": "~1.3.3",
+    "moment": "~2.10.6"
+  }
 }
