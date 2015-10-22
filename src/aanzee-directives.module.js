@@ -1,15 +1,8 @@
 (function (){
-	var options = {
-		viewPath: '/views/aanzee/directives/'
-	};
-
-	/*  */
-	if (window.aanzeeDirective !== undefined){
-		for (var attribute in window.aanzeeDirective) {
-			options[attribute] = window.aanzeeDirective[attribute];
-		}
-	}
-
-	angular.module('aanZeeDirectives', [])
-		.constant('options', options);
+	angular.module('aanZeeDirectives', [
+		// All the directives
+		'aanZeeDirectives.inputStepper'
+	])
+	// Add the options to the module
+	.value('options', {viewPath: '/views/aanzee/directives/'});
 })();

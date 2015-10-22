@@ -28,15 +28,10 @@
     <p>This works with ng-disabled, pass in a boolean and it will disable or enable. It also adds the class 'is-disabled'.</p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script>
-        window.aanzeeDirective = {
-            viewPath: '../dist/views/aanzee/directives/'
-        };
-    </script>
     <script src="../dist/js/directives.min.js"></script>
     <script>
         (function () {
-            angular.module('myApp', ['aanZeeDirectives']);
+            angular.module('myApp', ['aanZeeDirectives.inputStepper']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
             angular.module('myApp').controller('myController', ['$scope', function ($scope) {}]);
         })();
     </script>
