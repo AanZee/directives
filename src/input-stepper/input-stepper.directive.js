@@ -10,6 +10,7 @@
                 ngModel: '=',
                 ngDisabled: '@?',
                 label: '@?',
+                value: '@?',
                 minimum: '@?',
                 maximum: '@?',
                 step: '@?',
@@ -40,6 +41,7 @@
             }],
             link: function(scope, elem, attr) {
                 scope.step = parseInt(attr.step, 10) || 1;
+                scope.value = 0;
                 scope.minimum = undefined;
                 scope.maximum = undefined;
                 scope.iconIncrease = '+';
@@ -58,8 +60,11 @@
                 if (attr.min){
                     scope.minimum = parseInt(attr.min, 10);
                 }
+                if (attr.value){
+                    scope.value = parseInt(attr.value, 10);
+                }
                 if (!scope.ngModel){
-                    scope.ngModel = scope.minimum || 0;
+                    scope.ngModel = scope.value || scope.minimum || 0;
                 }
                 if (attr.iconIncrease) {
                     scope.iconIncrease = attr.iconIncrease;
