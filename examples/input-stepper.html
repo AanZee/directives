@@ -28,14 +28,21 @@
     <p>This works with ng-disabled, pass in a boolean and it will disable or enable. It also adds the class 'is-disabled'.</p>
 
     <h3>Stepper <small>with custom classes</small></h3>
-    <p>You have chosen: {{myCounter5}}</p>
-    <input-stepper ng-model="myCounter5" classes="{'increaseButton': 'form-stepper__stepper-button', 'decreaseButton': 'form-stepper__stepper-button', 'input': 'form-stepper__stepper-input', 'label': 'form-stepper__stepper-label', 'wrapper': 'form-stepper'}"></input-stepper>
+    <p>You have chosen: {{myCounter6}}</p>
+    <input-stepper ng-model="myCounter6" classes="{'increaseButton': 'form-stepper__stepper-button', 'decreaseButton': 'form-stepper__stepper-button', 'input': 'form-stepper__stepper-input', 'label': 'form-stepper__stepper-label', 'wrapper': 'form-stepper'}"></input-stepper>
+
+    <h3>Stepper <small>custom icons</small></h3>
+    <p>You have chosen: {{myCounter7}}</p>
+    <input-stepper ng-model="myCounter7" icon-increase="X" icon-decrease="I"></input-stepper>
+    <p>This works with ng-disabled, pass in a boolean and it will disable or enable. It also adds the class 'is-disabled'.</p>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-sanitize.min.js"></script>
     <script src="../dist/js/directives.min.js"></script>
     <script>
         (function () {
-            angular.module('myApp', ['aanZeeDirectives.inputStepper']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
+            angular.module('myApp', ['ngSanitize', 'aanZeeDirectives.inputStepper']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
             angular.module('myApp').controller('myController', ['$scope', function ($scope) {}]);
         })();
     </script>

@@ -14,7 +14,9 @@
                 maximum: '@?',
                 step: '@?',
                 disabled: '@?',
-                classes: '@?'
+                classes: '@?',
+                iconIncrease: '@?',
+                iconDecrease: '@?'
             },
             controller: ['$scope', '$element', function($scope, $element) {
                 $scope.decrease = function(){
@@ -40,6 +42,8 @@
                 scope.step = parseInt(attr.step, 10) || 1;
                 scope.minimum = undefined;
                 scope.maximum = undefined;
+                scope.iconIncrease = '+';
+                scope.iconDecrease = '-';
                 scope.classes = {
                     increaseButton: '',
                     decreaseButton: '',
@@ -56,6 +60,12 @@
                 }
                 if (!scope.ngModel){
                     scope.ngModel = scope.minimum || 0;
+                }
+                if (attr.iconIncrease) {
+                    scope.iconIncrease = attr.iconIncrease;
+                }
+                if (attr.iconDecrease) {
+                    scope.iconDecrease = attr.iconDecrease;
                 }
 
                 // Add classes to classes object
