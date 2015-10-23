@@ -1,7 +1,7 @@
 {
   "name": "AanZeeDirectives",
   "main": "dist/js/directives.min.js",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "homepage": "https://github.com/AanZee/directives",
   "authors": [
     "Back-end Developers <backend@aanzee.nl>"
