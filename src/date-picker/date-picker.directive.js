@@ -18,7 +18,8 @@
                 locales: '@?',
                 numberOfMonths: '@?',
                 disableWeekends: '@?',
-                firstDay: '@?'
+                firstDay: '@?',
+                icon: '@?'
             },
             controller: ['$scope', '$element', function($scope, $element) {
                 $scope.$on('dateSelected', function(event, date){
@@ -34,6 +35,11 @@
                         pickerWrapper: '',
                         pickerInput: ''
                     };
+
+                    scope.icon = '';
+                    if (attr.icon) {
+                        scope.icon = attr.icon;
+                    }
 
                     // Add classes to classes object
                     attr.classes = scope.$eval(attr.classes);

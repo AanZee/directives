@@ -1,3 +1,4 @@
-<span class="date-picker {{classes.pickerWrapper}}">
-    <input class="date-picker__input {{classes.pickerInput}}" ng-model="ngModel" ng-class="{'is-disabled': ngDisabled }" ng-disabled="ngDisabled" type="text"/>
-</span>
+<label class="date-picker {{classes.pickerWrapper}}" for="{{ngModel}}">
+    <input class="date-picker__input {{classes.pickerInput}}" id="{{ngModel}}" ng-model="ngModel" ng-class="{'is-disabled': ngDisabled }" ng-disabled="ngDisabled" type="text"/>
+    <span ng-if="::icon" ng-bind-html="icon"></span>
+</label>
