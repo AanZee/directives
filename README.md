@@ -2,7 +2,7 @@
 A whole bunch of Angular directives made by Aan Zee.
 The main purpose of this repository is to create standard directives which we use in numerous projects.
 
-*Version: 0.2.5*
+*Version: 0.2.6*
 
 ## Usage
 1. Include the `dist/js/directives.min.js` in your HTML page after you have declared Angular and copy `dist/views` to a location you prefer.
