@@ -11,6 +11,10 @@
     <p>You have chosen: {{myDate1}}</p>
     <date-picker ng-model="myDate1"></date-picker>
 
+    <h3>Date picker <small>with custom icon</small></h3>
+    <p>You have chosen: {{myDate13}}</p>
+    <date-picker ng-model="myDate13" icon="Cal"></date-picker>
+
     <h3>Date picker <small>with default, minimum and maximum date</small></h3>
     <p>You have chosen: {{myDate2}}</p>
     <date-picker ng-model="myDate2" default-date="2015-08-08" min-date="2015-08-01" max-date="2015-08-28"></date-picker><br>
@@ -50,6 +54,7 @@
     <date-picker ng-model="myDate12" default-date="{{tomorrow}}" ng-disabled="true == true"></date-picker><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-sanitize.min.js"></script>
     <script src="../dist/js/vendor/moment.js"></script>
     <script src="../dist/js/vendor/nl.js"></script>
     <script src="../dist/js/vendor/de.js"></script>
@@ -57,7 +62,7 @@
     <script src="../dist/js/directives.min.js"></script>
     <script>
         (function () {
-            angular.module('myApp', ['aanZeeDirectives.datePicker']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
+            angular.module('myApp', ['ngSanitize', 'aanZeeDirectives.datePicker']).value('options', {viewPath: '../dist/views/aanzee/directives/'});
             angular.module('myApp').controller('myController', ['$scope', '$timeout', function ($scope, $timeout) {
                 // For the sake of this example
                 $scope.tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
