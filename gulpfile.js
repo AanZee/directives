@@ -42,7 +42,8 @@ var settings = {
             'bower_components/moment/locale/de.js'
         ],
         css: [
-            'bower_components/pikaday/css/pikaday.css'
+            'bower_components/pikaday/css/pikaday.css',
+            'bower_components/pikaday/scss/pikaday.scss'
         ]
     }
 };
