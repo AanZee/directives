@@ -1,9 +1,6 @@
 /**
  * Gulpfile
  * ------------------------------------------------------
- * During development run:
- * $ gulp
- *
  * Build your project before commit:
  * $ gulp build
  */

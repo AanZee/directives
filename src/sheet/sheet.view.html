@@ -1,0 +1,10 @@
+<div class="sheet" ng-class="{'is-visible': sheet.isVisible}">
+	<div class="sheet__overlay" ng-click="closeSheet($event)" ng-class="{'is-visible': sheet.isVisible}"></div>
+	<section class="sheet__body {{sheet.bodyModifierClass}}" ng-class="{'is-visible': sheet.isVisible}">
+		<div class="sheet__title-bar">
+			<h1 class="sheet__title" ng-bind="sheet.sheetTitle"></h1>
+			<button class="sheet__close-button" type="button" ng-click="closeSheet($event)">Close</button>
+		</div>
+		<ng-transclude></ng-transclude>
+	</section>
+</div>

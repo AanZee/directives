@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aan Zee - Directives // Sheet</title>
+
+	<style>
+		.sheet {
+			visibility: hidden;
+		}
+
+		.sheet.is-visible {
+			visibility: visible;
+		}
+
+		.sheet__body {
+			-webkit-transition: -webkit-transform 0.15s ease-in-out;
+			-moz-transition: -moz-transform 0.15s ease-in-out;
+			transition: transform 0.15s ease-in-out;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			z-index: 1000;
+			visibility: hidden;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			padding: 40px 20px 20px 20px;
+			width: 280px;
+			background-color: #fff;
+			box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+			text-align: left;
+			font-size: 15px;
+			line-height: 1.375em;
+		}
+
+		.sheet__body.is-visible {
+			-webkit-transform: translateX(0);
+			-moz-transform: translateX(0);
+			-ms-transform: translateX(0);
+			-o-transform: translateX(0);
+			transform: translateX(0);
+			visibility: visible;
+		}
+
+		.sheet__body--full {
+			padding: 40px 0 20px 0;
+		}
+
+		.sheet__body--left {
+			-webkit-transform: translateX(-290px);
+			-moz-transform: translateX(-290px);
+			-ms-transform: translateX(-290px);
+			-o-transform: translateX(-290px);
+			transform: translateX(-290px);
+			left: 0;
+		}
+
+		.sheet__body--right {
+			-webkit-transform: translateX(290px);
+			-moz-transform: translateX(290px);
+			-ms-transform: translateX(290px);
+			-o-transform: translateX(290px);
+			transform: translateX(290px);
+			right: 0;
+		}
+
+		.sheet__title-bar {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 40px;
+		}
+
+		.sheet__title {
+			float: left;
+			margin: 0;
+			padding: 10px 0 10px 20px;
+			font-size: 15px;
+			font-weight: bold;
+			line-height: 20px;
+		}
+
+		.sheet__close-button {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			-ms-appearance: none;
+			-o-appearance: none;
+			appearance: none;
+			overflow: hidden;
+			text-indent: 101%;
+			white-space: nowrap;
+			position: relative;
+			float: right;
+			margin-right: 6px;
+			padding: 0;
+			width: 40px;
+			height: 40px;
+			border: 0;
+			background-color: transparent;
+		}
+
+		.sheet__close-button::before {
+			-webkit-transform: translate(0, -50%);
+			-moz-transform: translate(0, -50%);
+			-ms-transform: translate(0, -50%);
+			-o-transform: translate(0, -50%);
+			transform: translate(0, -50%);
+			content: "X";
+			position: absolute;
+			top: 50%;
+			right: 0;
+			display: block;
+			width: 40px;
+			color: #000;
+			text-align: center;
+			text-indent: 0;
+			cursor: pointer;
+		}
+
+		.sheet__overlay {
+			-webkit-transition: opacity 0.15s ease-in-out;
+			-moz-transition: opacity 0.15s ease-in-out;
+			transition: opacity 0.15s ease-in-out;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 900;
+			visibility: hidden;
+			background-color: rgba(0, 0, 0, 0.65);
+			opacity: 0;
+		}
+
+		.sheet__overlay.is-visible {
+			visibility: visible;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="myController as myCtrl">
+
+	<h3>Sheet</h3>
+	<button ng-click="myCtrl.showSheet($event)" type="button">Show sheet</button>
+	<sheet body-modifier-class="sheet__body--right" is-visible="myCtrl.isSheetShown" sheet-title="Sheet title" ng-cloak>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</sheet>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="../dist/js/directives.min.js"></script>
+	<script>
+		(function () {
+			angular
+				.module('myApp', [
+					'aanZeeDirectives.sheet'
+				])
+				.value('options', {
+					viewPath: '../dist/views/aanzee/directives/'
+				});
+
+			angular
+				.module('myApp')
+				.controller('myController', myController);
+
+			function myController () {
+				var myCtrl = this;
+				myCtrl.isSheetShown = false;
+				myCtrl.showSheet = showSheet;
+
+				function showSheet($event) {
+					$event.preventDefault();
+					myCtrl.isSheetShown = true;
+				}
+			}
+		})();
+	</script>
+
+</body>
+</html>
