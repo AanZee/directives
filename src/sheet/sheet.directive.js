@@ -10,7 +10,7 @@
 	function sheet (options) {
 		var directive = {
 			bindToController: true,
-			controller: Controller,
+			controller: ['$scope', '$element', Controller],
 			controllerAs: 'sheet',
 			link: link,
 			restrict: 'E',
@@ -52,7 +52,7 @@
 		}
 	}
 
-	function Controller ($scope) {
+	function Controller ($scope, $element) {
 		$scope.closeSheet = closeSheet;
 
 		function closeSheet ($event) {
