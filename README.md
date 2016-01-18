@@ -4,6 +4,9 @@ The main purpose of this repository is to create standard directives which we us
 
 [![Bower version](https://badge.fury.io/bo/aanzee-directives.svg)](https://badge.fury.io/bo/aanzee-directives)
 
+## Easy installation
+Run $ bower install aanzee-directives
+
 ## Usage
 1. Include the `dist/js/directives.min.js` in your HTML page after you have declared Angular and copy `dist/views` to a location you prefer.
 2. Alter some additional configuration as shown in the example html files.
