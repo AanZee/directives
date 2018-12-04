@@ -9,6 +9,7 @@
             scope: {
                 ngModel: '=',
                 ngDisabled: '@?',
+                ngReadOnly: '@?',
                 classes: '@?',
                 format: '@?',
                 defaultDate: '@?',
@@ -28,6 +29,9 @@
                         $scope.$digest();
                     });
                 });
+                if (angular.isUndefined($scope.allowSomething)) {
+                    $scope.ngReadOnly = false;
+                }
             }],
             link: function(scope, elem, attr) {
                 if (elem[0]) {
