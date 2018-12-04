@@ -34,8 +34,7 @@
                 }
             }],
             link: function(scope, elem, attr) {
-                console.log(attr);
-
+              
                 if (elem[0]) {
                     scope.classes = {
                         pickerWrapper: '',
