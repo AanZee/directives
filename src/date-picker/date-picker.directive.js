@@ -9,6 +9,7 @@
             scope: {
                 ngModel: '=',
                 ngDisabled: '@?',
+                ngReadOnly: '@?',
                 classes: '@?',
                 format: '@?',
                 defaultDate: '@?',
@@ -28,8 +29,12 @@
                         $scope.$digest();
                     });
                 });
+                if (angular.isUndefined($scope.ngReadOnly)) {
+                    $scope.ngReadOnly = false;
+                }
             }],
             link: function(scope, elem, attr) {
+              
                 if (elem[0]) {
                     scope.classes = {
                         pickerWrapper: '',
@@ -96,6 +101,11 @@
                     // Disable weekends
                     if (attr.firstDay) {
                         pikadayOptions.firstDay = scope.$eval(attr.firstDay);
+                    }
+
+                    // Check if the property exists, if so readonly is true.
+                    if (typeof attr.readonly !== 'undefined') {
+                        scope.ngReadOnly = true;
                     }
 
                     // Set locale default locale is en
